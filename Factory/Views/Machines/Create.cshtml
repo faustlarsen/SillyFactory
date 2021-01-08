@@ -7,13 +7,13 @@
 <h4>Add New Machine</h4>
 
 @using (Html.BeginForm())
-{
-    @Html.TextBoxFor(model => model.Name)
-
-    @Html.Label("Select engineer:")<br>
-    @Html.DropDownList("EngineerId");
-
-  <input type="submit" value="Add new machine" />
+{   
+    <p>Machine Name: @Html.TextBoxFor(model => model.Name)</p>
+    
+    @Html.Label("Select engineer:")
+    @Html.DropDownList("EngineerId", (SelectList)ViewBag.EngeneerId, "-No engineer-")
+    <br>
+    <input type="submit" value="Add new machine" />
 }
 
-<p>@Html.ActionLink("Engineer List", "Index")</p>
+<p>@Html.ActionLink("Machine List", "Index")</p>

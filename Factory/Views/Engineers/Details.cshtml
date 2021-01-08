@@ -10,17 +10,17 @@
 
 @if(@Model.Machines.Count() == 0)
 {
-  <p>This Engineer is not assigned to any Machine yet</p>
+    <p>This Engineer is not assigned to any Machine yet</p>
 }
 else
 {
-      <h5>Machines this Engineer is assigned to:</h5>
-      <ul>
-      @foreach(var join in Model.Machines)
-      {
+    <h5>Machines this Engineer is assigned to:</h5>
+
+    @foreach(var join in Model.Machines)
+    {
         @Html.ActionLink(@join.Machine.Name, "Details", "Machines", new { id = @join.Machine.MachineId})
-      }
-      </ul>
+    }
+  
 }
 
 <p>@Html.ActionLink("Add Machine ", "Create", "Machines", new { id = Model.EngineerId})</p>
