@@ -7,13 +7,38 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Factory.Controllers
 {
-  public class MachinesController : Controller
-  {
-    private readonly FactoryContext _db;
-    public MachinesController(FactoryContext db)
+    public class MachinesController : Controller
     {
-      _db = db;
-    }
+        private readonly FactoryContext _db;
+        public MachinesController(FactoryContext db)
+        {
+            _db = db;
+        }
+        
+        public ActionResult Index()
+        {
+            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+            List<Machine> model = _db.Machines.ToList();
+            return View(model);
+        }
 
-  }
+        public ActionResult Create()
+        {
+            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Machine machine, int EngineerId)
+        {
+            _db.Machines.Add(machine);
+          if  (EngineerId != 0)
+        {
+            _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
+        }
+            _db.SaveChanges();
+            return RedirectToAction("Index");  
+        }
+
+    }
 }
