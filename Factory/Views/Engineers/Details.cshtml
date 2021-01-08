@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h2>Engineer Details</h2>
+
+<h3>@Html.DisplayFor(model => model.Name)</h3>
+
+@if(@Model.Machines.Count() == 0)
+{
+  <p>This Engineer is not assigned to any Machine yet</p>
+}
+else
+{
+      <h5>Machines this Engineer is assigned to:</h5>
+      <ul>
+      @foreach(var join in Model.Machines)
+      {
+        @Html.ActionLink(@join.Machine.Name, "Details", "Machines", new { id = @join.Machine.MachineId})
+      }
+      </ul>
+}
+
+<p>@Html.ActionLink("Add Machine ", "Create", "Machines", new { id = Model.EngineerId})</p>
+<p>@Html.ActionLink("Edit Engineers", "Edit", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>

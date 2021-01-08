@@ -72,5 +72,24 @@ namespace Factory.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-  }
+
+        public ActionResult DeleteAll()
+        {
+            var allEngineers = _db.Engineers.ToList();
+            return View();
+        }
+
+        [HttpPost, ActionName("DeleteAll")]
+            public ActionResult DeleteAllConfirmed()
+        {
+            var allEngineers = _db.Engineers.ToList();
+
+        foreach (var engineer in allEngineers)
+        {
+            _db.Engineers.Remove(engineer);
+        }
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+    }
 }

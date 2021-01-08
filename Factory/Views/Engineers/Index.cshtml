@@ -16,6 +16,7 @@
 {
   <li>@Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId })</li>
 }
-<hr>
-<p>@Html.ActionLink("Add new engineer", "Create", "Engineers")</p>
+
+<p>@Html.ActionLink("Add New Engineer", "Create", "Engineers")</p>
+<p>@Html.ActionLink("Delete All Engineers", "DeleteAll")</p>
 
