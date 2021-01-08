@@ -7,6 +7,7 @@
     <h2>Engineer Details</h2>
 
     <h3>@Html.DisplayFor(model => model.Name)</h3>
+    <h4>@Html.LabelFor(model => model.Status): Idle @Html.CheckBoxFor(model => model.Status) Busy @Html.CheckBoxFor(model => model.Status)</h4>
 
     @if(@Model.Machines.Count() == 0)
     {
@@ -20,7 +21,6 @@
         {
             @Html.ActionLink(@join.Machine.Name, "Details", "Machines", new { id = @join.Machine.MachineId})
         }
-      
     }
 
     <p>@Html.ActionLink("Add Machine ", "Create", "Machines", new { id = Model.EngineerId})</p>

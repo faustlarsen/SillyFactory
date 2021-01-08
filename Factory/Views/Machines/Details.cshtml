@@ -8,7 +8,11 @@
 
     <h2>@Html.DisplayFor(model => model.Name)</h2>
     <h3>@Html.DisplayNameFor(model => model.InspectionDate): @Html.DisplayFor(model => model.InspectionDate)</h3>
-
+    <h4>@Html.LabelFor(model => model.Condition):</h4>
+    <h4> Operational @Html.CheckBoxFor(model => model.Condition)</h4>
+    <h4> Malfunctioning @Html.CheckBoxFor(model => model.Condition) </h4>
+    <h4> Being repaired @Html.CheckBoxFor(model => model.Condition)</h4>
+    <br>
     @if(@Model.Engineers.Count == 0)
     {
       <p>This Machine does not have any engineers assigned to it yet</p>

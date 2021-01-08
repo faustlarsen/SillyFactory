@@ -15,6 +15,7 @@ namespace Factory.Models
         }
         public int MachineId  {get;set;}
         public string Name {get; set;}
+        public bool Condition { get; set; } = false;
         [DisplayName("InspectionDate")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]

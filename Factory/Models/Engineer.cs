@@ -12,6 +12,7 @@ namespace Factory.Models
         }
         public int EngineerId {get; set;}
         public string Name {get;set;}
+        public bool Status { get; set; } = false;
         public virtual ICollection<EngineerMachine> Machines  {get; set;}
     } 
 }
