@@ -16,9 +16,12 @@ namespace Factory.Controllers
             _db = db;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string EngineerSearch)
         {
             List<Engineer> model = _db.Engineers.ToList();
+            if(EngineerSearch!=null) {
+                model = _db.Engineers.Where(engineers => engineers.Name.Contains(EngineerSearch)).ToList();
+            }
             return View(model);
         }
 

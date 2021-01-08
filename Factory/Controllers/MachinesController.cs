@@ -15,10 +15,13 @@ namespace Factory.Controllers
             _db = db;
         }
         
-        public ActionResult Index()
+        public ActionResult Index(string MachineSearch)
         {
-            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+            ViewBag.MachineId = new SelectList(_db.Machines, "EngineerId", "Name");
             List<Machine> model = _db.Machines.ToList();
+            if(MachineSearch!=null) {
+                model = _db.Machines.Where(machine => machine.Name.Contains(MachineSearch)).ToList();
+            }
             return View(model);
         }
 

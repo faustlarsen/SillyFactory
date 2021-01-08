@@ -6,6 +6,9 @@
 @model List<Factory.Models.Machine>;
 
 <h1>The Machines</h1>
+<form>
+    <i class="glyphicon glyphicon-search"></i><input type="text" name="MachineSearch" placeholder="search and press enter">
+</form>
 
 @if (@Model.Count == 0)
 {
