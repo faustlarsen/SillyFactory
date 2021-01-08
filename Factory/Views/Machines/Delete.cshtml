@@ -3,12 +3,13 @@
 }
 
 @model Factory.Models.Machine
+<div class="container card">
+    <h2>Delete This Machine?</h2>
 
-<h2>Delete This Machine?</h2>
-
-@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
-@using (Html.BeginForm())
-{
-    <input type="submit" value="Delete" />
-}
-@Html.ActionLink("Engineer List", "Index")
+    @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+    @using (Html.BeginForm())
+    {
+        <input type="submit" value="Delete" />
+    }
+    @Html.ActionLink("Engineer List", "Index")
+</div>

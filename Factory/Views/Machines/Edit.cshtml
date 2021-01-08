@@ -3,20 +3,24 @@
 }
 
 @model Factory.Models.Machine
+<div class="container card">
+    <h1>Edit This Machine</h1>
 
-<h1>Edit This Machine</h1>
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
 
-<h4>@Html.DisplayFor(model => model.Name)</h4>
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.MachineId)
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(model => model.MachineId)
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+        @Html.LabelFor(model => model.InspectionDate)
+        @Html.TextBoxFor(model => model.InspectionDate, new {@type="date"})
 
-    @Html.Label("Select engineer")
-    @Html.DropDownList("EngineerId")
+        @Html.Label("Select engineer")
+        @Html.DropDownList("EngineerId")
 
-    <input type="submit" value="Save" />
-}
-<p>@Html.ActionLink("Engineer List", "Index")</p>
+        <input type="submit" value="Save" />
+    }
+    <p>@Html.ActionLink("Engineer List", "Index")</p>
+</div>

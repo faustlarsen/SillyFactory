@@ -19,10 +19,12 @@ namespace Factory.Controllers
         {
             ViewBag.MachineId = new SelectList(_db.Machines, "EngineerId", "Name");
             List<Machine> model = _db.Machines.ToList();
+            var sortedMachines = model.OrderBy( x => x.InspectionDate.Year);
+            var sotedList = sortedMachines.ToList();
             if(MachineSearch!=null) {
-                model = _db.Machines.Where(machine => machine.Name.Contains(MachineSearch)).ToList();
+                sotedList = _db.Machines.Where(machine => machine.Name.Contains(MachineSearch)).ToList();
             }
-            return View(model);
+            return View(sotedList);
         }
 
         public ActionResult Create()

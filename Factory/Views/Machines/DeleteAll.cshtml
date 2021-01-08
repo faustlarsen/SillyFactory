@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 @model List<Factory.Models.Machine>;
-
+<div class="container card">
     <h2>Delete all Machines?</h2>
 
     @using (Html.BeginForm())
@@ -11,3 +11,4 @@
     }
 
     <p>@Html.ActionLink("Machine List", "Index")</p>
+</div>
