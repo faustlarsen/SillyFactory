@@ -1,13 +1,11 @@
 @{
     Layout = "_Layout";
 }
-
 @model Factory.Models.Engineer
 <div class="container card">
     <h1>Engineer Details</h1>
     <hr>
     <p><strong> Name: </strong>@Html.DisplayFor(model => model.EngineerName)</p>
-    @* <h4>@Html.LabelFor(model => model.Status): Idle @Html.CheckBoxFor(model => model.Status) Busy @Html.CheckBoxFor(model => model.Status)</h4> *@
     <hr>
     @if(@Model.Machines.Count() == 0)
     {
@@ -16,7 +14,6 @@
     else
     {
         <p>Machines this Engineer is assigned to:</p>
-
         @foreach(var join in Model.Machines)
         {
             <p><strong> Name:</strong> @Html.ActionLink(@join.Machine.MachineName, "Details", "Machines", new { id = @join.Machine.MachineId})</p>

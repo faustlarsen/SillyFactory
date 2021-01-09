@@ -1,20 +1,16 @@
 @{
     Layout = "_Layout";
 }
-
 @model Factory.Models.Machine
 <div class="container card">
     <h1>Assign Engineer</h1>
     <hr>
     <h2>Assign Engineer To: @Html.DisplayFor(model => model.MachineName)</h2>
-
     @using (Html.BeginForm())
     {
         @Html.HiddenFor(model => model.MachineId)
-
         @Html.Label("Select Engineers") 
         @Html.DropDownList("EngineerId")
-
         <input class="btn btn-warning" type="submit" value="Save" />
     }
     <hr>

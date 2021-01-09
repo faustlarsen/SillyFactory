@@ -1,7 +1,6 @@
 @{
   Layout = "_Layout";
 }
-
 @using Factory.Models;
 @model List<Factory.Models.Machine>;
 <div class="container card">
@@ -15,10 +14,9 @@
     {
       <p>No machines have been added yet!</p>
     } 
-
     @foreach (Machine machine in Model)
     {
-      <li>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId }) | @machine.InspectionDate</li>
+      <li>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId }) | @machine.InspectionDate</li> 
     }
     <hr>
     <br>

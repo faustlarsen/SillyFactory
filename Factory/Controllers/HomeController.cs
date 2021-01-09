@@ -1,6 +1,5 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using Factory.Models;
 
 namespace Factory.Controllers

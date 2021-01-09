@@ -1,18 +1,12 @@
 @{
   Layout = "_Layout";
 }
-
 @model Factory.Models.Machine
 <div class="container card">
     <h1>Machine Details</h1>
-
     <p><strong> Name:</strong> @Html.DisplayFor(model => model.MachineName)</p>
     <p><strong>Last Inspection Date:</strong>  @Html.DisplayFor(model => model.InspectionDate)</p>
     <hr>
-    @* <h4>@Html.LabelFor(model => model.Condition):</h4>
-    <h4> Operational @Html.CheckBoxFor(model => model.Condition)</h4>
-    <h4> Malfunctioning @Html.CheckBoxFor(model => model.Condition) </h4>
-    <h4> Being repaired @Html.CheckBoxFor(model => model.Condition)</h4> *@
     @if(@Model.Engineers.Count == 0)
     {
       <p>This Machine does not have any engineers assigned to it yet</p>
