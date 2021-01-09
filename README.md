@@ -24,7 +24,7 @@ _This app will demonstrate the use of database and many to many relationships be
 ## Installation Requirements
 
 - Install [MySQL Workbench](https://dev.mysql.com/downloads/file/?id=484391)
-- Install [MySQl] (https://dev.mysql.com/downloads/file/?id=484914)
+- Install [MySQl](https://dev.mysql.com/downloads/file/?id=484914)
 - Install [.Net Core](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 - Install [Visual Studio Code](https://code.visualstudio.com/)
 - Install [Git](https://git-scm.com/downloads/)
@@ -33,15 +33,15 @@ _This app will demonstrate the use of database and many to many relationships be
 In the Terminal
 -  `$ cd ~` - it will navigate to the user's home directory
 -  `$ cd desktop`- it will navigate to the desktop
--  `$ git clone` ,then copy/paste https://github.com/faustlarsen/HairSalon , then press 'enter' - it will create the file on the desktop
--  `$ cd HairSalon.Solution` - it will enter the folder
+-  `$ git clone` ,then copy/paste https://github.com/faustlarsen/SillyFactory , then press 'enter' - it will create the file on the desktop
+-  `$ cd SillyFactory` - it will enter the folder
 -  `$ code .` - it will launch VSCode ( text editor ) to open the file
 -  `$ touch appsettings.json` - create this file in root directory
 - Copy and paste in appsettings.json file: 
 
 ```
 {
-  "ConnectionStrings": { "DefaultConnection": "Server=localhost;Port=3306;database=firstName-lastName;uid=root;pwd=YourPassword;"
+  "ConnectionStrings": { "DefaultConnection": "Server=localhost;Port=3306;database=constantine_yakubovski_factory;uid=root;pwd=YourPassword;"
   }
 }
 ```
@@ -53,7 +53,7 @@ Copy and Paste the following commands in the terminal. (exclude '$' and '>')
 -  `$ mysql -uroot -pepicodus ` - start MySQL Server 
 -  `$ cd ~` - it will navigate to the user's home directory
 -  `$ cd desktop`- it will navigate to the desktop
--  `$ cd HairSalon.Solution` - it will enter the folder
+-  `$ cd SillyFactory` - it will enter the folder
 -  `$ dotnet ef database update` - it will generate database
 - `> exit ` - to exit MySQL
 - `$ dotnet restore ` - it will complie the code
@@ -69,7 +69,7 @@ Copy and Paste the following commands in the terminal. (exclude '$' and '>')
 - In browsing tool to select the constantine_yakubovski.sql file that is in the project
 - Start Import
 
-## Alternatively,
+## Alternatively
 In your command line terminal, type cd Desktop then navigate to project folder using cd Dot.Solution
 Then navigate to cd solution and type dotnet ef migrations Initial
 Then type dotnet ef database update
@@ -78,10 +78,6 @@ You can confirm your the database has been created by going to the Schemas tab i
 
 ## IMPORT DATABASE with MySQL Schema
 - Open your SQL management tool, and paste in the following Schema Create Statement in order to reproduce the database and its tables.
-
-
-CREATE DATABASE IF NOT EXISTS firstName_lastName;
-USE firstName_lastName;
 
 
 
