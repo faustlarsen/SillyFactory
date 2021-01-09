@@ -14,7 +14,7 @@
         @Html.TextBoxFor(model => model.InspectionDate, new {@type="date"})
         <br>
         @Html.Label("Select engineer:")
-        @Html.DropDownList("EngineerId", (SelectList)ViewBag.EngeneerId, "-No engineer-")
+        @Html.DropDownList("EngineerId", (SelectList)ViewBag.EngeneerId, "-No engineers-")
         <br>
         <input type="submit" value="Add new machine" />
     }
