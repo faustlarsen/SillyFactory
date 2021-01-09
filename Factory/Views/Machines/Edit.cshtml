@@ -6,22 +6,23 @@
 <div class="container card">
     <h1>Edit This Machine</h1>
 
-    <h4>@Html.DisplayFor(model => model.Name)</h4>
+    <h2>@Html.DisplayFor(model => model.MachineName)</h2>
 
     @using (Html.BeginForm())
     {
         @Html.HiddenFor(model => model.MachineId)
-        @Html.LabelFor(model => model.Name)
-        @Html.EditorFor(model => model.Name)
-
+        @Html.LabelFor(model => model.MachineName)
+        @Html.EditorFor(model => model.MachineName)
+        <br>
         @Html.LabelFor(model => model.InspectionDate)
         @Html.TextBoxFor(model => model.InspectionDate, new {@type="date"})
-
+        <br>
         @Html.Label("Select engineer")
         @Html.DropDownList("EngineerId")
-
-        <input type="submit" value="Save" />
+        <br>
+        <input type="submit" value="Save" class="btn btn-warning"/>
     }
-    <p>@Html.ActionLink("Engineer List", "Index")</p>
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+    <br>
+    <input class="btn btn-info" type="button" value="Machine List" onclick='location.href="@Url.Action("Index")";' />
+    <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
 </div>

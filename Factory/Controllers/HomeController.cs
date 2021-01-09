@@ -1,13 +1,24 @@
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using Factory.Models;
 
 namespace Factory.Controllers
 {
-    public class HomeController : Controller
+  public class HomeController : Controller
+  {
+    private readonly FactoryContext _db;
+
+    public HomeController(FactoryContext db)
     {
-      [HttpGet("/")]
-      public ActionResult Index()
-      {
-        return View();
-      }
+      _db = db;
     }
+
+    [HttpGet("/")]
+    public ActionResult Index()
+    {
+      ViewBag.Machines = _db.Machines.ToList();
+      return View(_db.Engineers.ToList());
+    }
+  }
 }

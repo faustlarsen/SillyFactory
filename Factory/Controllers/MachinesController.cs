@@ -17,19 +17,19 @@ namespace Factory.Controllers
         
         public ActionResult Index(string MachineSearch)
         {
-            ViewBag.MachineId = new SelectList(_db.Machines, "EngineerId", "Name");
+            ViewBag.MachineId = new SelectList(_db.Machines, "EngineerId", "EngineerName");
             List<Machine> model = _db.Machines.ToList();
             var sortedMachines = model.OrderBy( x => x.InspectionDate.Year);
             var sotedList = sortedMachines.ToList();
             if(MachineSearch!=null) {
-                sotedList = _db.Machines.Where(machine => machine.Name.Contains(MachineSearch)).ToList();
+                sotedList = _db.Machines.Where(machine => machine.MachineName.Contains(MachineSearch)).ToList();
             }
             return View(sotedList);
         }
 
         public ActionResult Create()
         {
-            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace Factory.Controllers
         public ActionResult Edit(int id)
         {
             var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId ==id);
-            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
             return View(thisMachine);
         }
 
@@ -126,7 +126,7 @@ namespace Factory.Controllers
         public ActionResult AddEngineer(int id)
         {
             var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
-            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
             return View(thisMachine);
         }
 

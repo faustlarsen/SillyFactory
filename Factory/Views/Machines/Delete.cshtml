@@ -4,13 +4,14 @@
 
 @model Factory.Models.Machine
 <div class="container card">
-    <h2>Delete This Machine?</h2>
+    <h1>Delete This Machine?</h1>
 
-    @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+    <p><strong>Name:</strong>@Html.DisplayFor(model => model.MachineName)</p>
     @using (Html.BeginForm())
     {
-        <input type="submit" value="Delete" />
+        <input class="btn btn-warning" type="submit" value="Delete" />
     }
-    @Html.ActionLink("Engineer List", "Index")
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+    <br>
+    <input class="btn btn-info" type="button" value="Machine List" onclick='location.href="@Url.Action("Index")";' />
+    <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
 </div>

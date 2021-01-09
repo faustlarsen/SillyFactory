@@ -20,14 +20,14 @@ namespace Factory.Controllers
         {   
             List<Engineer> model = _db.Engineers.ToList();
             if(EngineerSearch!=null) {
-                model = _db.Engineers.Where(engineers => engineers.Name.Contains(EngineerSearch)).ToList();
+                model = _db.Engineers.Where(engineers => engineers.EngineerName.Contains(EngineerSearch)).ToList();
             }
             return View(model);
         }
 
         public ActionResult Create()
         {
-            ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+            ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
             return View();
         }
 
@@ -51,7 +51,7 @@ namespace Factory.Controllers
         public ActionResult Edit(int id)
         {
             var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "EngineerName");
             return View(thisEngineer);
         }
 
@@ -100,7 +100,7 @@ namespace Factory.Controllers
         public ActionResult AddMachine(int id)
         {
             var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
-            ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+            ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
             return View(thisEngineer);
         }
 

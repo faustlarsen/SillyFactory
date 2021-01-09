@@ -1,31 +1,31 @@
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 @model Factory.Models.Engineer
 <div class="container card">
-    <h2>Engineer Details</h2>
-
-    <h3>@Html.DisplayFor(model => model.Name)</h3>
-    <h4>@Html.LabelFor(model => model.Status): Idle @Html.CheckBoxFor(model => model.Status) Busy @Html.CheckBoxFor(model => model.Status)</h4>
-
+    <h1>Engineer Details</h1>
+    <p><strong> Name: </strong>@Html.DisplayFor(model => model.EngineerName)</p>
+    @* <h4>@Html.LabelFor(model => model.Status): Idle @Html.CheckBoxFor(model => model.Status) Busy @Html.CheckBoxFor(model => model.Status)</h4> *@
+    <hr>
     @if(@Model.Machines.Count() == 0)
     {
         <p>This Engineer is not assigned to any Machine yet</p>
     }
     else
     {
-        <h5>Machines this Engineer is assigned to:</h5>
+        <p>Machines this Engineer is assigned to:</p>
 
         @foreach(var join in Model.Machines)
         {
-            @Html.ActionLink(@join.Machine.Name, "Details", "Machines", new { id = @join.Machine.MachineId})
+            <p><strong> Name:</strong> @Html.ActionLink(@join.Machine.MachineName, "Details", "Machines", new { id = @join.Machine.MachineId})</p>
         }
     }
-    <p>@Html.ActionLink("Assign Machine", "AddMachine", new { id = Model.EngineerId })</p>
-    
-    <p>@Html.ActionLink("Add Machine ", "Create", "Machines", new { id = Model.EngineerId})</p>
-    <p>@Html.ActionLink("Edit Engineers", "Edit", new { id = Model.EngineerId })</p>
-    <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+    <br>
+    <input class="btn btn-warning" type="button" value="Assign Machine" onclick='location.href="@Url.Action("AddMachine", new { id = Model.EngineerId })";' />
+<br>
+    <input class="btn btn-info" type="button" value="Add Machine" onclick='location.href="@Url.Action("Create", "Machines", new { id = Model.EngineerId })";' />
+    <input class="btn btn-info" type="button" value="Edit Engineer" onclick='location.href="@Url.Action("Edit", "Engineers", new { id = Model.EngineerId })";' />
+    <input class="btn btn-info" type="button" value="Delete Engineer" onclick='location.href="@Url.Action("Delete", "Engineers", new { id = Model.EngineerId })";' />
+    <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
 </div>

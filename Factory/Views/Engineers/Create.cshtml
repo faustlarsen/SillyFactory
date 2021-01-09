@@ -1,5 +1,5 @@
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 @model Factory.Models.Engineer
@@ -8,11 +8,11 @@
 
     @using (Html.BeginForm())
     {
-        <p>Engineer Name: @Html.TextBoxFor(model => model.Name)</p>
+        <p>Engineer Name: @Html.TextBoxFor(model => model.EngineerName)</p>
         
-        <input type="submit" value="Add new engineer" />
+        <input class="btn btn-warning" type="submit" value="Add new engineer" />
     }
-    <p>@Html.ActionLink("Engineer List", "Index")</p>
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+<br>
+    <input class="btn btn-info" type="button" value="Engineer List" onclick='location.href="@Url.Action("Index", "Engineers")";' />
+    <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
 </div>
-

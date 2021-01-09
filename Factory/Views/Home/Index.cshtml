@@ -1,21 +1,33 @@
+@using Factory.Models;
+
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
-<div class="container card">
-<h1>W E L C O M E</h1>
+<div class="title">
+<h3 style="font-size: 100px" >DREAM FACTORY</h3> 
+</div>
+<hr>
 
-  <h4>@Html.ActionLink("Engineers List", "Index", "Engineers")</h4>
-  <h4>@Html.ActionLink("Machines LIst", "Index", "Machines")</h4>
+<div class="card1">
+    <h4>@Html.ActionLink("Engineers List", "Index", "Engineers")</h4>
+    @if (@Model.Count == 0)
+        {
+            <p>LIst is empty.</p>
+        }
+    @foreach (Engineer engineer in Model)
+    {
+        <li >@Html.ActionLink($"{engineer.EngineerName}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
+    }
 </div>
 
-
-<br>
-<div class="container card">
-  <h1>Machine List</h1>
-
-</div>
-<br></br>
-<div class="container card">
-  <h1>Engeieer List</h1>
-
+<div class="card2">
+<h4>@Html.ActionLink("Machines LIst", "Index", "Machines")</h4>
+    @if (@Model.Count == 0)
+    {
+        <p>LIst is empty.</p>
+    }
+    @foreach (Machine machine in ViewBag.Machines)
+    {
+        <li>@Html.ActionLink($"{machine.MachineName}", "Details", "Machines", new { id = machine.MachineId })</li>
+    }
 </div>

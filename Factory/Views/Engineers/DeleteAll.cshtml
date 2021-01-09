@@ -3,13 +3,13 @@
 }
 @model List<Factory.Models.Engineer>;
 <div class="container card">
-    <h2>Delete all Engineers?</h2>
+    <h1>Delete all Engineers?</h1>
 
     @using (Html.BeginForm())
     {
-        <button class="btn btn-primary" type="submit" value="DeleteAll">YES</button>
+        <button class="btn btn-warning" type="submit" value="DeleteAll">YES</button>
     }
-
-    <p>@Html.ActionLink("Engineer List", "Index")</p>
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+  <br>
+  <input class="btn btn-info" type="button" value="Engineer List" onclick='location.href="@Url.Action("Index", "Engineers")";' />
+  <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
 </div>

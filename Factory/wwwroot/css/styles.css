@@ -1,0 +1,77 @@
+.card  {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 1%;
+  background-color: rgba(255, 255, 255, 0.671);
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  width: 4in;
+}
+
+.nav {
+  background-color: rgba(255, 255, 255, 0.644);
+  font-family: 'Fredericka the Great', cursive;
+  color :rgb(0, 0, 0);
+  font-size: large;
+}
+
+body {
+  display: auto;
+  background-image: url("https://img.wallpapersafari.com/desktop/1680/1050/32/53/NpjauQ.jpg");
+}
+
+.card1 {
+  padding: 1%;
+  border-radius: 10px;
+  border-style: solid;
+  width: 50%;
+  float: right;
+  opacity: 0.8;
+  background-color: rgba(255, 255, 255, 0.87);
+  font-family: 'Vast Shadow', cursive;
+}
+
+.card2 {
+  padding: 1%;
+  border-radius: 10px;
+  font-family: 'Vast Shadow', cursive; 
+  border-style: solid;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.87);
+  opacity: 0.8;
+  float: left;
+}
+p a h2 {
+  font-family: 'Rhodium Libre', serif;
+}
+
+h1 {
+font-family: 'Fredericka the Great', cursive;
+}
+
+.title {
+  font-family: 'Fredericka the Great', cursive;
+  text-align:center;
+  letter-spacing: 7px;
+}
+
+div#footer {
+  background-color: rgba(255, 255, 255, 0.644);
+  font-family: 'Fredericka the Great', cursive;
+  color: rgb(0, 0, 0);
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  width:100%;
+  text-align: center;
+}
+
+.btn {
+  border: rgb(0, 0, 0);
+  border-style: solid;
+  border-width: 1px;
+}
+
+h3 {
+  color: rgb(255, 187, 0);
+}

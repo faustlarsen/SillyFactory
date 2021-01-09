@@ -3,14 +3,15 @@
 }
 @model Factory.Models.Engineer
 <div class="container card">
-    <h2>Delete This Engineer?</h2>
+    <h1>Delete This Engineer?</h1>
 
-    <p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+    <p><strong>Name:</strong> @Html.DisplayFor(model => model.EngineerName)</p>
 
     @using (Html.BeginForm())
     {
-        <input type="submit" value="Delete"/>
+        <input class="btn btn-warning" type="submit" value="Delete" />
     }
-    @Html.ActionLink("Engineer List", "Index")
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
+    <br>
+    <input class="btn btn-info" type="button" value="Engineer List" onclick='location.href="@Url.Action("Index")";' />
+    <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
 </div>

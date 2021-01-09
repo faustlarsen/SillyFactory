@@ -22,7 +22,7 @@ namespace Factory.Migrations
                     b.Property<int>("EngineerId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("EngineerName");
 
                     b.Property<bool>("Status");
 
@@ -58,7 +58,7 @@ namespace Factory.Migrations
 
                     b.Property<DateTime>("InspectionDate");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("MachineName");
 
                     b.HasKey("MachineId");
 

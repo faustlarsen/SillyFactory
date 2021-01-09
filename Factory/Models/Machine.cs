@@ -14,7 +14,7 @@ namespace Factory.Models
           this.Engineers = new HashSet<EngineerMachine>();
         }
         public int MachineId  {get;set;}
-        public string Name {get; set;}
+        public string MachineName {get; set;}
         public bool Condition { get; set; } = false;
         [DisplayName("InspectionDate")]
         [DataType(DataType.Date)]
