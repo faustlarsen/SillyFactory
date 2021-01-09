@@ -66,16 +66,16 @@ namespace Factory.Controllers
         {
             var joinConfirm = _db.EngineerMachine.FirstOrDefault(join => join.MachineId == machine.MachineId && join.EngineerId == EngineerId);
 
-        if(joinConfirm != null)
-        {
-            _db.Entry(machine).State = EntityState.Modified;
-            _db.SaveChanges();
-            return RedirectToAction("Details", new { id = machine.MachineId});
-        }
+            if(joinConfirm != null)
+            {
+                _db.Entry(machine).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Details", new { id = machine.MachineId});
+            }
             if (EngineerId != 0)
-        {
-            _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
-        }
+            {
+                    _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
+            }
             _db.Entry(machine).State =EntityState.Modified;
             _db.SaveChanges();
             return RedirectToAction("Details", new {id = machine.MachineId});
@@ -121,6 +121,24 @@ namespace Factory.Controllers
         }
             _db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult AddEngineer(int id)
+        {
+            var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+            ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+            return View(thisMachine);
+        }
+
+        [HttpPost]
+        public ActionResult AddEngineer(Machine machine, int EngineerId)
+        {
+            if (EngineerId != 0)
+            {
+                _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
+            }
+            _db.SaveChanges();
+            return RedirectToAction("Details", "Machines", new {id = machine.MachineId});
         }
     }
 }
