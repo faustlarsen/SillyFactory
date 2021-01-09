@@ -5,12 +5,13 @@
 @model Factory.Models.Machine
 <div class="container card">
     <h1>Delete This Machine?</h1>
-
+    <hr>
     <p><strong>Name:</strong>@Html.DisplayFor(model => model.MachineName)</p>
     @using (Html.BeginForm())
     {
         <input class="btn btn-warning" type="submit" value="Delete" />
     }
+    <hr>
     <br>
     <input class="btn btn-info" type="button" value="Machine List" onclick='location.href="@Url.Action("Index")";' />
     <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />

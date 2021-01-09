@@ -5,13 +5,14 @@
 @model Factory.Models.Engineer
 <div class="container card">
     <h1>Edit This Engineer</h1>
-
+    <hr>
     @using (Html.BeginForm())
     {
         @Html.HiddenFor(model => model.EngineerId) 
         @Html.EditorFor(model => model.EngineerName)
         <input type="submit" value="Save" class="btn btn-warning"/>
     }
+    <hr>
     <br>
     <input class="btn btn-info" type="button" value="Engineer List" onclick='location.href="@Url.Action("Index")";' />
     <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />

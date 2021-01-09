@@ -5,23 +5,26 @@
 @model Factory.Models.Machine
 <div class="container card">
     <h1>Edit This Machine</h1>
-
-    <h2>@Html.DisplayFor(model => model.MachineName)</h2>
+    <hr>
+    <p><strong>@Html.DisplayFor(model => model.MachineName)</strong></p>
 
     @using (Html.BeginForm())
     {
         @Html.HiddenFor(model => model.MachineId)
-        @Html.LabelFor(model => model.MachineName)
+        
         @Html.EditorFor(model => model.MachineName)
+        <hr>
         <br>
-        @Html.LabelFor(model => model.InspectionDate)
+        <p><strong>Inspection Date</strong></p>
         @Html.TextBoxFor(model => model.InspectionDate, new {@type="date"})
+        <hr>
         <br>
-        @Html.Label("Select engineer")
+        <strong>@Html.Label("Select Engineer")</strong>
+        <br>
         @Html.DropDownList("EngineerId")
-        <br>
         <input type="submit" value="Save" class="btn btn-warning"/>
     }
+    <hr>
     <br>
     <input class="btn btn-info" type="button" value="Machine List" onclick='location.href="@Url.Action("Index")";' />
     <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />

@@ -5,20 +5,22 @@
 @model Factory.Models.Machine
 <div class="container card">
     <h1>Add New Machine</h1>
-
+    <hr>
     @using (Html.BeginForm())
     {   
-        <p>Machine Name: @Html.TextBoxFor(model => model.MachineName)</p>
-
-        @Html.LabelFor(model => model.InspectionDate)
+        <strong><p>Machine Name: @Html.TextBoxFor(model => model.MachineName)</p></strong>
+        <hr>
+        <strong><p>Inspection Date:</p></strong>
         @Html.TextBoxFor(model => model.InspectionDate, new {@type="date"})
+        <hr>
         <br>
-        @Html.Label("Assign engineer:")
+        <strong>@Html.Label("Assign engineer:")</strong>
         @Html.DropDownList("EngineerId", (SelectList)ViewBag.EngeneerId, "-No engineers-")
         <br>
-        <input type="submit" value="Add new machine" class="btn btn-warning"/>
+        <input type="submit" value="Add New Machine" class="btn btn-warning"/>
     }
-<br>
+    <hr>
+    <br>
     <input class="btn btn-info" type="button" value="Machine List" onclick='location.href="@Url.Action("Index", "Machines")";' />
     <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
 </div>

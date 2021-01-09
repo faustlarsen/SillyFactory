@@ -5,14 +5,15 @@
 @model Factory.Models.Engineer
 <div class="container card">
     <h1>Add New Engineer</h1>
-
+    <hr>
     @using (Html.BeginForm())
     {
-        <p>Engineer Name: @Html.TextBoxFor(model => model.EngineerName)</p>
+        <strong><p>Engineer Name: @Html.TextBoxFor(model => model.EngineerName)</p></strong>
         
-        <input class="btn btn-warning" type="submit" value="Add new engineer" />
+        <input class="btn btn-warning" type="submit" value="Add New Engineer" />
     }
-<br>
+    <hr>
+    <br>
     <input class="btn btn-info" type="button" value="Engineer List" onclick='location.href="@Url.Action("Index", "Engineers")";' />
     <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
 </div>

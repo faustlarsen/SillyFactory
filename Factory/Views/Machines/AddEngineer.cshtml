@@ -5,7 +5,7 @@
 @model Factory.Models.Machine
 <div class="container card">
     <h1>Assign Engineer</h1>
-
+    <hr>
     <h2>Assign Engineer To: @Html.DisplayFor(model => model.MachineName)</h2>
 
     @using (Html.BeginForm())
@@ -17,6 +17,7 @@
 
         <input class="btn btn-warning" type="submit" value="Save" />
     }
+    <hr>
     <input class="btn btn-info" type="button" value="Machine List" onclick='location.href="@Url.Action("Index", "Machines")";' />
     <input class="btn btn-info" type="button" value="Engineer List" onclick='location.href="@Url.Action("Index", "Engineers")";' />
     <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />

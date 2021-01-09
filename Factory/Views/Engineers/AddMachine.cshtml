@@ -1,25 +1,21 @@
 @{
     Layout = "_Layout";
 }
-
 @model Factory.Models.Engineer
 <div class="container card">
     <h1>Assign Machine</h1>
-
-    <h2>Assign Machine to: @Html.DisplayFor(model => model.EngineerName)</h2>
-
+    <hr>
+    <h4>Assign Machine to @Html.DisplayFor(model => model.EngineerName)</h4>
     @using (Html.BeginForm())
     {
         <h4>@Html.HiddenFor(model => model.EngineerId)</h4>
-
-        <h4>@Html.Label("Select Machines")</h4>
+        <p>@Html.Label("Select Machines")</p>
         <p>@Html.DropDownList("MachineId")</p>
-
         <input class="btn btn-warning" type="submit" value="Save" />
     }
+    <hr>
     <br>
     <input class="btn btn-info" type="button" value="Engineer List" onclick='location.href="@Url.Action("Index", "Engineers")";' />
     <input class="btn btn-info" type="button" value="Machine List" onclick='location.href="@Url.Action("Index", "Machines")";' />
     <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
-
 </div>

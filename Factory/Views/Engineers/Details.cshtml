@@ -5,6 +5,7 @@
 @model Factory.Models.Engineer
 <div class="container card">
     <h1>Engineer Details</h1>
+    <hr>
     <p><strong> Name: </strong>@Html.DisplayFor(model => model.EngineerName)</p>
     @* <h4>@Html.LabelFor(model => model.Status): Idle @Html.CheckBoxFor(model => model.Status) Busy @Html.CheckBoxFor(model => model.Status)</h4> *@
     <hr>
@@ -23,7 +24,8 @@
     }
     <br>
     <input class="btn btn-warning" type="button" value="Assign Machine" onclick='location.href="@Url.Action("AddMachine", new { id = Model.EngineerId })";' />
-<br>
+    <hr>
+    <br>
     <input class="btn btn-info" type="button" value="Add Machine" onclick='location.href="@Url.Action("Create", "Machines", new { id = Model.EngineerId })";' />
     <input class="btn btn-info" type="button" value="Edit Engineer" onclick='location.href="@Url.Action("Edit", "Engineers", new { id = Model.EngineerId })";' />
     <input class="btn btn-info" type="button" value="Delete Engineer" onclick='location.href="@Url.Action("Delete", "Engineers", new { id = Model.EngineerId })";' />

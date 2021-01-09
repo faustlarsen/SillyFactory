@@ -4,13 +4,14 @@
 @model Factory.Models.Engineer
 <div class="container card">
     <h1>Delete This Engineer?</h1>
-
+    <hr>
     <p><strong>Name:</strong> @Html.DisplayFor(model => model.EngineerName)</p>
 
     @using (Html.BeginForm())
     {
         <input class="btn btn-warning" type="submit" value="Delete" />
     }
+    <hr>
     <br>
     <input class="btn btn-info" type="button" value="Engineer List" onclick='location.href="@Url.Action("Index")";' />
     <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />

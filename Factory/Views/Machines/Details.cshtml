@@ -19,7 +19,7 @@
     }
     else
     {
-      <p>Engineers that are assigned to work on this machine:</p>
+      <strong><p>Engineers that are assigned to work on this machine:</p></strong>
       <ul>
       @foreach(var join in Model.Engineers)
       {
@@ -32,21 +32,10 @@
       }
       </ul>
     }
-<br>
+    <hr>
+    <br>
     <input class="btn btn-info" type="button" value="Add Engineer" onclick='location.href="@Url.Action("Create", "Engineers", new { id = Model.MachineId })";' />
     <input class="btn btn-info" type="button" value="Edit Machine" onclick='location.href="@Url.Action("Edit", "Machines", new { id = Model.MachineId })";' />
     <input class="btn btn-info" type="button" value="Delete Machine" onclick='location.href="@Url.Action("Delete", "Machines", new { id = Model.MachineId })";' />
     <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
 </div>
-
-
-
-
-
-@* <div class="card">
-    <p>@Html.ActionLink("Assign Engineer", "AddEngineer", new { id = Model.MachineId })</p>
-    <p>@Html.ActionLink("Add Engineer ", "Create", "Engineers", new { id = Model.MachineId})</p>
-    <p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
-    <p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
-    <p>@Html.ActionLink("Home", "Index", "Home")</p>
-</div> *@
