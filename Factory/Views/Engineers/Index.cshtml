@@ -9,6 +9,7 @@
     <form>
         <i class="glyphicon glyphicon-search"></i><input type="text" name="EngineerSearch" placeholder="search and press enter">
     </form>
+    
 
     @if (@Model.Count == 0)
     {
@@ -22,4 +23,5 @@
     <br>
     <p>@Html.ActionLink("Add New Engineer", "Create", "Engineers")</p>
     <p>@Html.ActionLink("Delete All Engineers", "DeleteAll")</p>
+    <p>@Html.ActionLink("Home", "Index", "Home")</p>
 </div>

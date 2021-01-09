@@ -19,7 +19,8 @@
     {
       <li>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId }) | @machine.InspectionDate</li>
     }
-
+    <br>
     <p>@Html.ActionLink("Add New Machine", "Create", "Machines")</p>
     <p>@Html.ActionLink("Delete All Machines", "DeleteAll")</p>
+    <p>@Html.ActionLink("Home", "Index", "Home")</p>
 </div>

@@ -7,8 +7,9 @@
 
     @using (Html.BeginForm())
     {
-        <input type="submit" value="Delete"/>
+        <button class="btn btn-primary" type="submit" value="DeleteAll">YES</button>
     }
 
     <p>@Html.ActionLink("Machine List", "Index")</p>
+    <p>@Html.ActionLink("Home", "Index", "Home")</p>
 </div>
