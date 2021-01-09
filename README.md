@@ -66,19 +66,16 @@ Copy and Paste the following commands in the terminal. (exclude '$' and '>')
 - Choose 'Administration'
 - Then 'Data Import'
 - Choose  'Import Self-Contained File"
-- In browsing tool to select the constantine_yakubovski.sql file that is in the project
+- In browsing tool to select the constantine_yakubovski_factory.sql file that is in the project
 - Start Import
 
-## Alternatively
-In your command line terminal, type cd Desktop then navigate to project folder using cd Dot.Solution
-Then navigate to cd solution and type dotnet ef migrations Initial
-Then type dotnet ef database update
-You can confirm your the database has been created by going to the Schemas tab in your MySql Workbench and then right click and select Refresh All in the schema window.
-
-
-## IMPORT DATABASE with MySQL Schema
-- Open your SQL management tool, and paste in the following Schema Create Statement in order to reproduce the database and its tables.
-
+## ALTERNATIVE DATABASE SETUP
+-  `$ cd desktop`- it will navigate to the desktop
+-  `$ cd SillyFactory` - it will enter the working folder
+-  `$ cd Factory` - it will enter the main project
+- `$ dotnet ef migrations Initial` - will create database on MySQL Workbench
+- `$ dotnet ef database update` 
+- `$ dotnet run ` - it will launch the app in (localhost:5000)
 
 
 ## Known Bugs

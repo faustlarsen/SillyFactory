@@ -45,7 +45,7 @@ CREATE TABLE `EngineerMachine` (
   KEY `IX_EngineerMachine_MachineId` (`MachineId`),
   CONSTRAINT `FK_EngineerMachine_Engineers_EngineerId` FOREIGN KEY (`EngineerId`) REFERENCES `engineers` (`EngineerId`) ON DELETE CASCADE,
   CONSTRAINT `FK_EngineerMachine_Machines_MachineId` FOREIGN KEY (`MachineId`) REFERENCES `machines` (`MachineId`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,10 +57,10 @@ DROP TABLE IF EXISTS `Engineers`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `Engineers` (
   `EngineerId` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` longtext,
+  `EngineerName` longtext,
   `Status` bit(1) NOT NULL,
   PRIMARY KEY (`EngineerId`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,11 +72,11 @@ DROP TABLE IF EXISTS `Machines`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `Machines` (
   `MachineId` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` longtext,
+  `MachineName` longtext,
+  `Condition` bit(1) NOT NULL,
   `InspectionDate` datetime(6) NOT NULL,
-  `Condition` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`MachineId`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -88,4 +88,4 @@ CREATE TABLE `Machines` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-08 17:41:21
+-- Dump completed on 2021-01-09 14:30:23
