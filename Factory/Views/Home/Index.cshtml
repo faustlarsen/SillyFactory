@@ -1,32 +1,33 @@
 @using Factory.Models;
+@model Factory.Models.SplashList;
+
 @{
     Layout = "_Layout";
 }
 <div class="title">
-<h3 style="font-size: 100px" >DREAM FACTORY</h3> 
+<h3 style="font-size: 100px">DREAM FACTORY</h3> 
 </div>
 <hr>
 <div class="card1">
     <h4>@Html.ActionLink("Engineers List", "Index", "Engineers")</h4>
-    @if (@Model.Count == 0)
+    @if (@Model.EngineersList.Count == 0)
     {
-        <p>LIst is empty.</p>
-    } 
-    @foreach (Engineer engineer in Model)
+        <p>List is empty.</p>
+    }  
+    @foreach (Engineer engineer in Model.EngineersList)
     {
-        <li >@Html.ActionLink($"{engineer.EngineerName}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
+        <li>@Html.ActionLink($"{engineer.EngineerName}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
     }
-    
 </div>
+
 <div class="card2">
-<h4>@Html.ActionLink("Machines LIst", "Index", "Machines")</h4>
-    @if (@Model.Count == 0)
+    <h4>@Html.ActionLink("Machines LIst", "Index", "Machines")</h4>
+    @if (@Model.MachinesList.Count == 0)
     {
-        <p>LIst is empty.</p>
-    } 
-    @foreach (Machine machine in ViewBag.Machines)
+        <p>List is empty.</p>
+    }
+    @foreach (Machine machine in Model.MachinesList)
     {
         <li>@Html.ActionLink($"{machine.MachineName}", "Details", "Machines", new { id = machine.MachineId })</li>
     }
-
 </div>
