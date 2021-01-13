@@ -22,7 +22,6 @@ namespace Factory.Controllers
         _userManager = userManager;
         _db = db;
     }
-
         // public ActionResult Index(string EngineerSearch)
         // {   
         //     List<Engineer> model = _db.Engineers.ToList();
@@ -31,8 +30,6 @@ namespace Factory.Controllers
         //     }
         //     return View(model);
         // }
-
-
         public async Task<ActionResult> Index(string EngineerSearch)
         { 
 
@@ -46,15 +43,13 @@ namespace Factory.Controllers
             // var userItems = _db.Engineers.Where(entry => entry.User.Id == currentUser.Id).ToList();
             return View(model);
         }
-
         // public async Task<ActionResult> Index()
         // { 
         //     var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         //     var currentUser = await _userManager.FindByIdAsync(userId);
         //     var userItems = _db.Engineers.Where(entry => entry.User.Id == currentUser.Id).ToList();
         //     return View(userItems);
-        // }
-    
+        // }git add
         public ActionResult Create()
         {
             ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
