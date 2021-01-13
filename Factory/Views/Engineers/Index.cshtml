@@ -2,7 +2,9 @@
   Layout = "_Layout";
 }
 @using Factory.Models;
-@model List<Factory.Models.Engineer>;
+@using System.Security.Claims
+@model IEnumerable<Factory.Models.Engineer>;
+
 <div class="container card">
     <h1>The Engineers</h1>
     <hr>
@@ -10,14 +12,16 @@
         <i class="glyphicon glyphicon-search"></i><input type="text" name="EngineerSearch" placeholder="search and press enter">
     </form>
     <hr>
-    @if (@Model.Count == 0)
+    @if (@Model.Any())
     {
-      <p>No engineers have been hired yet!</p>
+      @foreach (Engineer engineer in Model)
+      {
+        <h6><li>@Html.ActionLink($"{engineer.EngineerName}", "Details", new { id = engineer.EngineerId })</li></h6>
+      } 
     }
-
-    @foreach (Engineer engineer in Model)
+    else    
     {
-      <h6><li>@Html.ActionLink($"{engineer.EngineerName}", "Details", new { id = engineer.EngineerId })</li></h6>
+        <p>No engineers have been hired yet!</p>
     }
     <hr>
     <br>

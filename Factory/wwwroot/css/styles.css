@@ -75,3 +75,23 @@ div#footer {
 h3 {
   color: rgb(255, 187, 0);
 }
+
+.card3 {
+  padding: 1%;
+  border-radius: 10px;
+  border-style: solid;
+  width: 50%;
+  float: right;
+  opacity: 0.8;
+  background-color: rgba(255, 255, 255, 0.87);
+  font-family: 'Vast Shadow', cursive;
+}
+
+/* .nav-link {
+  border: black;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 1px 20px 1px;
+  margin: 0.01cm;
+} */

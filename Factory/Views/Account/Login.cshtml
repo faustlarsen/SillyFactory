@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.ViewModels
+
+@model LoginViewModel
+
+<div class="title">
+    <h3 style="font-size: 100px">DREAM FACTORY</h3> 
+</div>
+
+<div class="container card">
+    <h2>Log In with your account</h2>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.TextBoxFor(m => m.Email, new { @required = "required" })
+        @Html.LabelFor(m => m.Email)
+        <br>
+        @Html.PasswordFor(m => m.Password, new {  @required = "required" })
+        @Html.LabelFor(m => m.Password)
+        <hr>
+        <input class="btn btn-info" type="submit" value="Log In" />
+    }
+</div>

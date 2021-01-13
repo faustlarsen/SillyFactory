@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Factory.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Factory
 {
@@ -25,11 +26,27 @@ namespace Factory
       services.AddEntityFrameworkMySql()
           .AddDbContext<FactoryContext>(options => options
           .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<FactoryContext>()
+                .AddDefaultTokenProviders();
+      
+      services.Configure<IdentityOptions>(options =>
+      {
+        options.Password.RequireDigit = false;
+        options.Password.RequiredLength = 0;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequiredUniqueChars = 0;
+      });
     }
+
     public void Configure(IApplicationBuilder app)
     {
       app.UseStaticFiles();
       app.UseDeveloperExceptionPage();
+      app.UseAuthentication();
       app.UseMvc(routes =>
       {
         routes.MapRoute(

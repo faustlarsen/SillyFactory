@@ -16,10 +16,9 @@
         <strong>@Html.Label("Assign engineer:")</strong>
         @Html.DropDownList("EngineerId", (SelectList)ViewBag.EngeneerId, "-No engineers-")
         <br>
-        <input type="submit" value="Assign" class="btn btn-warning"/>
+        <input style="width: 3.87in;"  type="submit" value="Assign" class="btn btn-warning"/>
     }
     <hr>
-    <br>
     <input class="btn btn-info" type="button" value="Machine List" onclick='location.href="@Url.Action("Index", "Machines")";' />
     <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
 </div>

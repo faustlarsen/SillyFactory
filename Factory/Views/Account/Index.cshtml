@@ -1,0 +1,31 @@
+@{
+    Layout = "_Layout";
+}
+
+@using System.Security.Claims
+
+<div class="title">
+    <h3 style="font-size: 100px">DREAM FACTORY</h3> 
+</div>
+
+<div class="container card">
+    <h1 style="text-align: center;">Authentication with Identity</h1>
+    <hr/>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h1 style="text-align: center;">WELCOME!!!</h1> <STRONG style="text-align: center;"> @User.Identity.Name!</STRONG>
+        @using (Html.BeginForm("LogOff", "Account"))
+        {
+            <input style="width: 3.85in;" type="submit" class="btn btn-info" value="Log out" />
+            <br>
+            <input style="width: 3.85in;" class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
+        }
+    }
+    else
+    {    
+        <input class="btn btn-info" type="button" value="Register" onclick='location.href="@Url.Action("Register")";' />
+        <input class="btn btn-info" type="button" value="Authentication" onclick='location.href="@Url.Action("Login")";' />
+        <input class="btn btn-info" type="button" value="Home" onclick='location.href="@Url.Action("Index", "Home")";' />
+    }
+</div>
+

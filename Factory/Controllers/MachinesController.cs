@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Factory.Controllers
-{
+{   
+    [Authorize] 
     public class MachinesController : Controller
     {
         private readonly FactoryContext _db;
@@ -80,7 +82,7 @@ namespace Factory.Controllers
             _db.SaveChanges();
             return RedirectToAction("Details", new {id = machine.MachineId});
         }
-
+    
         public ActionResult Delete(int id)
         {
             var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId ==id);

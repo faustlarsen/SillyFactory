@@ -4,27 +4,57 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace Factory.Controllers
-{
+{   
+    [Authorize]
     public class EngineersController : Controller
-    {
+    {   
         private readonly FactoryContext _db;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public EngineersController(FactoryContext db)
-        {
-            _db = db;
-        }
+        public EngineersController(UserManager<ApplicationUser> userManager, FactoryContext db)
+    {
+        _userManager = userManager;
+        _db = db;
+    }
 
-        public ActionResult Index(string EngineerSearch)
-        {   
+        // public ActionResult Index(string EngineerSearch)
+        // {   
+        //     List<Engineer> model = _db.Engineers.ToList();
+        //     if(EngineerSearch!=null) {
+        //         model = _db.Engineers.Where(engineers => engineers.EngineerName.Contains(EngineerSearch)).ToList();
+        //     }
+        //     return View(model);
+        // }
+
+
+        public async Task<ActionResult> Index(string EngineerSearch)
+        { 
+
             List<Engineer> model = _db.Engineers.ToList();
             if(EngineerSearch!=null) {
                 model = _db.Engineers.Where(engineers => engineers.EngineerName.Contains(EngineerSearch)).ToList();
             }
+            // return View(model);
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            // var userItems = _db.Engineers.Where(entry => entry.User.Id == currentUser.Id).ToList();
             return View(model);
         }
 
+        // public async Task<ActionResult> Index()
+        // { 
+        //     var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //     var currentUser = await _userManager.FindByIdAsync(userId);
+        //     var userItems = _db.Engineers.Where(entry => entry.User.Id == currentUser.Id).ToList();
+        //     return View(userItems);
+        // }
+    
         public ActionResult Create()
         {
             ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
@@ -32,13 +62,22 @@ namespace Factory.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Engineer engineer)
-        {
+        public async Task<ActionResult> Create(Engineer engineer, int MachineId)
+        {    
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            engineer.User = currentUser;
+
             _db.Engineers.Add(engineer);
+            if (MachineId != 0)
+            {
+                _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
+            }
+
             _db.SaveChanges();
             return RedirectToAction("Index");
         } 
-        
+    
         public ActionResult Details(int id)
         {
             var thisEngineer = _db.Engineers
@@ -47,7 +86,7 @@ namespace Factory.Controllers
                 .FirstOrDefault(engineer => engineer.EngineerId == id);
             return View(thisEngineer);
         }
-        
+
         public ActionResult Edit(int id)
         {
             var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
@@ -62,7 +101,7 @@ namespace Factory.Controllers
             _db.SaveChanges();
             return RedirectToAction("Details", new { id = engineer.EngineerId });
         }
-
+    
         public ActionResult Delete(int id)
         {
             var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId== id);
